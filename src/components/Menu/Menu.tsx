@@ -1,5 +1,3 @@
-import FoodTest from "@/assets/plates/kousa.jpg";
-import { Card, CardContent, CardTitle } from "../ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -7,44 +5,57 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { FoodMenu } from "./FoodMenu";
+import { Card, CardContent } from "../ui/card";
 
 const Menu = () => {
   return (
     <>
-      <div className="bg-black text-white flex flex-col justify-center gap-10">
-        <h1 className="text-4xl underline text-center font-merienda">Menu</h1>
-        <Carousel className="relative w-full max-w-xs  overflow-visible mx-16">
-          <CarouselContent>
-            <CarouselItem>
-              <Card>
-                <CardContent className="flex  gap-2 justify-center p-4 items-center">
-                  <img
-                    src={FoodTest}
-                    alt="food"
-                    className="rounded-lg w-fit h-fit"
-                  />
-                  <p className="font">Some authentic egyptian food</p>
-                </CardContent>
-              </Card>
-            </CarouselItem>
-            <CarouselItem>
-              <Card>
-                <CardContent className="flex justify-center p-4 items-center">
-                  <img src={FoodTest} alt="food" className="rounded-lg" />
-                </CardContent>
-              </Card>
-            </CarouselItem>
-
-            <CarouselItem>
-              <Card>
-                <CardContent className="flex justify-center p-4 items-center">
-                  <img src={FoodTest} alt="food" className="rounded-lg" />
-                </CardContent>
-              </Card>
-            </CarouselItem>
-          </CarouselContent>
-          <CarouselPrevious className="border-2 border-orange-400 text-white bg-black hover:text-green-400 disabled:bg-gray-300 disabled:text-purple-200" />
-          <CarouselNext />
+      <div className="bg-black text-white">
+        <h1 className="font-merienda text-4xl underline text-center p-3">
+          Our Menu
+        </h1>
+        <Carousel className="bg-black text-white max-w-2xl max-h-2xl mx-auto">
+          <div className="flex flex-col">
+            <CarouselContent>
+              {FoodMenu.map((food, index) => (
+                <CarouselItem key={index}>
+                  <div className="p-1 flex justify-center items-center gap-3">
+                    <Card className="bg-black text-orange-400  w-[3000px]">
+                      <CardContent>
+                        <div className="flex flow-row w-fit">
+                          <img
+                            src={food.image}
+                            className="w-[300px] p-2 rounded-3xl"
+                            alt="food image"
+                          />
+                          <div className="flex flex-col gap-1 p-3">
+                            <p className="font-merienda text-center text-lg underline">
+                              {food.name}
+                            </p>
+                            <p className="italic text-gray-100 text-center">
+                              "{food.description}."
+                            </p>
+                            <p className=" text-center">
+                              <span className="font-semibold font-sans text-xl">
+                                Price{": "}
+                              </span>
+                              <span className="font-merienda underline text-xl mx-4 text-white">
+                                {" "}
+                                {food.price} EGP
+                              </span>
+                            </p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </div>
+          <CarouselNext className="text-white bg-black" />
+          <CarouselPrevious className="text-white bg-black" />
         </Carousel>
       </div>
     </>

@@ -1,20 +1,14 @@
-import Egyfood from "@/assets/EgyFood.jpg";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Hero = () => {
   return (
-    <Card className=" w-fill bg-orange-500 p-0 m-0 rounded-none">
+    <Card className=" w-fill bg-orange-500 p-0 m-0 border-none rounded-none">
       <CardHeader className="flex flex-row justify-start">
         <CardTitle className="text-center flex-grow  font-merienda font-extrabold text-4xl">
           About Us
         </CardTitle>
       </CardHeader>
       <CardContent className="flex flex-row font-merienda">
-        <img
-          src={Egyfood}
-          alt="egyptian food"
-          className=" w-50 h-44 rounded-md mx-auto -my-10"
-        />
         <section className="mx-5 font-merienda">
           At EgyFood Delights, we’re all about sharing the love for authentic
           Egyptian cuisine. From the comforting flavors of koshari to the sweet
